@@ -4,33 +4,35 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.newland</groupId>
-        <artifactId>oauth2-example</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <artifactId>spring-oauth2-security</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.newland</groupId>
-    <artifactId>oauth2demo</artifactId>
+    <artifactId>spring-security-oauth2-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>oauth2demo</name>
+    <name>spring-security-oauth2-server</name>
     <description>Demo project for Spring Boot</description>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

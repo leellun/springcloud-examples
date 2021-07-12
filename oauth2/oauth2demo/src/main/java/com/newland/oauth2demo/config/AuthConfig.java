@@ -7,6 +7,9 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 
+/**
+ * http://localhost:9000/oauth/authorize?client_id=client&response_type=code
+ */
 @Configuration
 @EnableAuthorizationServer
 public class AuthConfig extends AuthorizationServerConfigurerAdapter {
