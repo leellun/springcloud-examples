@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cloud-consul-consumer-order8007" />
+        <module name="cloud-consul-provider-payment8006" />
+        <module name="cloud-consul-provider-payment8006 (2)" />
+        <module name="cloud-zk-consumer-order8005" />
+        <module name="cloud-zk-provider-payment8004" />
+        <module name="eureka-server" />
+        <module name="nacos-consumer" />
+        <module name="service-hi" />
+        <module name="springcloud" />
+      </profile>
+      <profile name="Annotation profile for springcloud" enabled="true">
+        <sourceOutputDir name="../cloud-consul-provider-payment8006/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../cloud-consul-provider-payment8006/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cloud-consul-provider-payment8006 (1)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="euraka-client" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

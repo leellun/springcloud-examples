@@ -1,0 +1,16 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: locahost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  server:
+#自我保护 当server在15分钟内，比值低于percent，即少了15%的微服务心跳
+    renewal-percent-threshold: 0.85
+spring:
+  application:
+    name: eurka-server

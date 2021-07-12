@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-consul-consumer-order8007" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-consul-provider-payment8006" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-zk-consumer-order8005" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-zk-provider-payment8004" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nacos-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-hi" charset="UTF-8" />
+  </component>
+</project>
