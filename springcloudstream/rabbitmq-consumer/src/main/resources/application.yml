@@ -1,0 +1,26 @@
+server:
+  port: 8809
+spring:
+  application:
+    name: rabbitmq-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    stream:
+      binders:
+        defaultRabbit:
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.10.103
+                port: 5672
+                username: leellun
+                password: liulun666
+          type: rabbit
+      bindings:
+        input:
+          binder: defaultRabbit
+          content-type: application/json
+          destination: studyExchange
+          group: atguiguA
