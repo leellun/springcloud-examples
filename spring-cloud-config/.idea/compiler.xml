@@ -9,6 +9,7 @@
         <module name="config-client" />
         <module name="config-server" />
         <module name="eureka-server" />
+        <module name="nacos-config-client" />
       </profile>
     </annotationProcessing>
   </component>
