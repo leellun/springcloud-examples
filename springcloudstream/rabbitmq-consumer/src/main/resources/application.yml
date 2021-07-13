@@ -23,4 +23,4 @@ spring:
           binder: defaultRabbit
           content-type: application/json
           destination: studyExchange
-          group: atguiguA
+          group: groupA
