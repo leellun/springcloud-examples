@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xsi:schemaLocation="http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+	<!-- ActiveMQConnectionFactory配置 -->
+	<amq:connectionFactory
+		brokerURL="tcp://192.168.3.44:61616" userName="admin" password="admin"
+		id="amqConnectionFactory" />
+	<!-- 配置有缓存的ConnectionFactory,session的缓存大小可指定 -->
+	<bean id="connectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory"
+			ref="amqConnectionFactory"></property>
+		<property name="sessionCacheSize" value="3"></property>
+	</bean>
+	<!-- 注册监听： acknowledge - 消息确认机制 container-type - 容器类型 DefaultContainerType 
+		SingleContainerType destination-type - 目的地类型 connection-factory - 连接工厂 -->
+	<jms:listener-container acknowledge="auto"
+		container-type="default" destination-type="queue"
+		connection-factory="connectionFactory">
+		<jms:listener destination="test-activemq-spring"
+			ref="emailMessage" />
+	</jms:listener-container>
+
+</beans>

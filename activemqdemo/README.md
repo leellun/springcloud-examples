@@ -1,0 +1,4 @@
+# activemqdemo
+activiemq.first是基本的activemq操作
+activemq-producer-spring和activemq-consumer-spring是spring和activemq的集成演示
+activemq-producer-spring主要用作邮件消息的封装，activemq-consumer-spring主要用作邮件消息的发送

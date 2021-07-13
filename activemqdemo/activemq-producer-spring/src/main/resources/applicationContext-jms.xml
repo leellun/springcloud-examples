@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xsi:schemaLocation="http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+	<!-- ActiveMQConnectionFactory配置 -->
+	<amq:connectionFactory
+		brokerURL="tcp://192.168.3.44:61616" userName="admin" password="admin"
+		id="amqConnectionFactory" />
+	<!--配置池化的ConnectionFactory，为连接ActiveMQ的ConnectionFactory提供连接池 -->
+	<bean id="pooledConnectionFactory"
+		class="org.apache.activemq.pool.PooledConnectionFactoryBean">
+		<property name="connectionFactory" ref="amqConnectionFactory"></property>
+		<property name="maxConnections" value="10"></property>
+	</bean>
+	<!-- 配置有缓存的ConnectionFactory,session的缓存大小可指定 -->
+	<bean id="connectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory"
+			ref="pooledConnectionFactory"></property>
+		<property name="sessionCacheSize" value="3"></property>
+	</bean>
+	<bean id="template"
+		class="org.springframework.jms.core.JmsTemplate">
+		<!-- 制定共倉連接 -->
+		<property name="connectionFactory" ref="connectionFactory"></property>
+		<!-- 默認目的地 -->
+		<property name="defaultDestinationName"
+			value="test-activemq-spring"></property>
+	</bean>
+	<context:component-scan
+		base-package="com.spring.producer">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+</beans>

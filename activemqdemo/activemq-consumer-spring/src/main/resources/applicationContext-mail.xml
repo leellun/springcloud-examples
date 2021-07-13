@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xsi:schemaLocation="http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+		<context:component-scan base-package="com.spring.consumer"></context:component-scan>
+		<bean id="sender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+			<property name="host" value="smtp.sina.cn"></property>
+			<property name="username" value="leellun@sina.cn"></property>
+			<property name="password" value="**"></property>
+			<property name="defaultEncoding" value="UTF-8"></property>
+			<property name="javaMailProperties">
+				<props>
+					<prop key="mail.stmp.auth">true</prop>
+					<prop key="mail.stmp.timeout">30000</prop>
+				</props>
+			</property>
+		</bean>
+		<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage" scope="prototype">
+			<property name="from" value="leellun@sina.cn"></property>
+		</bean>
+		<bean id="pool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+			<!-- 初始大小 -->
+			<property name="corePoolSize" value="4"></property>
+			<property name="keepAliveSeconds" value="60"></property>
+			<property name="maxPoolSize" value="32"></property>
+			<!-- 任务队列容量 -->
+			<property name="queueCapacity" value="128"></property>
+		</bean>
+		<import resource="applicationContext-jms.xml"/>
+</beans>
