@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rabbitmq-consumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rabbitmq-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rabbitmq-provider/src/main/resources/application.yml" charset="GBK" />
   </component>
 </project>

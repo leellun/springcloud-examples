@@ -1,0 +1,57 @@
+
+server:
+  port: 8889
+spring:
+  application:
+    name: bookstore
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/bookstore?autoReconnect=true&userUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowMultiQueries=true
+      username: leellun
+      password: liulun666
+      initial-size: 10
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      filter: stat,wall,log4j
+      max-pool-prepared-statement-per-connection-size: 20
+      use-global-data-source-stat: true
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    database: 1
+    host: 192.168.10.103
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    timeout: 30000ms
+  aop:
+    auto: true
+    proxy-target-class: true
+mybatis-plus:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath*:com/shuangren/bookstore/mapper/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      table-underline: true
+      column-format: true
+      capital-mode: true
+  type-aliases-package: com.shuangren.bookstore
+logging:
+  config: classpath:log4j.properties
+mybatis:
+  mapper-locations: classpath*:com/shuangren/bookstore/mapper/*.xml
+  config-location: classpath:mybatis-config.xml
