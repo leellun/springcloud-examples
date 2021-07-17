@@ -8,16 +8,19 @@ spring:
     alibaba:
       seata:
         #自定义事务组名称需要与seata-server中的对应
-        tx-service-group: fsp_tx_group
+        tx-service-group: springcloud-seata
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: 192.168.10.100:8848
+        ip: 192.168.10.100
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/seata_order
+    url: jdbc:mysql://192.168.10.100:3306/seata_order?serverTimezone=UTC
     username: leellun
     password: liulun666
-
+  aop:
+    auto: true
+    proxy-target-class: true
 feign:
   hystrix:
     enabled: false
@@ -29,3 +32,8 @@ logging:
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
+
+seata:
+  service:
+    grouplist:
+      defaultZone: 192.168.10.103:8091

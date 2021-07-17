@@ -1,4 +1,4 @@
-package com.newland.seataaccountservice;
+package com.newland.springcloud.alibaba;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,10 +9,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableDiscoveryClient
 @EnableFeignClients
-public class SeataAccountServiceApplication {
+public class SeataStorageServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SeataAccountServiceApplication.class, args);
+        SpringApplication.run(SeataStorageServiceApplication.class, args);
     }
 
 }

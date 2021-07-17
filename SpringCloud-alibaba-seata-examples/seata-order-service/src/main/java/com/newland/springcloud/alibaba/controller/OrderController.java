@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 /**
  * @auther zzyy
  * @create 2020-02-26 15:24
+ * http://192.168.10.100:2001/order/create?userId=1&productId=1&count=1&money=10
  */
 @RestController
 public class OrderController

@@ -7,16 +7,19 @@ spring:
   cloud:
     alibaba:
       seata:
-        tx-service-group: fsp_tx_group
+        tx-service-group: springcloud-seata
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: 192.168.10.100:8848
+        ip: 192.168.10.100
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/seata_storage
+    url: jdbc:mysql://192.168.10.100:3306/seata_storage?serverTimezone=UTC
     username: leellun
     password: liulun666
-
+  aop:
+    auto: true
+    proxy-target-class: true
 logging:
   level:
     io:
@@ -24,5 +27,9 @@ logging:
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
+seata:
+  service:
+    grouplist:
+      defaultZone: 192.168.10.103:8091
 
 
