@@ -1,0 +1,45 @@
+server:
+  port: 2003
+
+spring:
+  application:
+    name: seata-account-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.10.100:8848
+        ip: 192.168.10.100
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.10.100:3306/seata_account?serverTimezone=UTC
+    username: leellun
+    password: liulun666
+  aop:
+    auto: true
+    proxy-target-class: true
+feign:
+  hystrix:
+    enabled: false
+logging:
+  level:
+    io:
+      seata: info
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+
+org:
+  dromara:
+    hmily :
+      serializer : kryo
+      recoverDelayTime : 128
+      retryMax : 30
+      scheduledDelay : 128
+      scheduledThreadMax :  10
+      repositorySupport : db
+      started: true
+      hmilyDbConfig :
+        driverClassName  : com.mysql.cj.jdbc.Driver
+        url :  jdbc:mysql://192.168.10.100:3306/hmily?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT+8&nullCatalogMeansCurrent=true
+        username : leellun
+        password : liulun666
