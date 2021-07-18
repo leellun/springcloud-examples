@@ -1,14 +1,13 @@
-package com.newland.springcloud.alibaba;
+package com.newland.hmily;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SeataStorageService2002ApplicationTests {
+class HmilyDemoTccSpringcloudAccountApplicationTests {
 
     @Test
     void contextLoads() {
-        long time=1;
     }
 
 }
