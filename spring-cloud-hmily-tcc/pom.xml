@@ -3,9 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.newland</groupId>
     <artifactId>springcloud-hmily-tcc</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -20,10 +20,9 @@
         <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
     </properties>
     <modules>
-        <module>hmily-demo-tcc-springcloud-account</module>
-        <module>hmily-demo-tcc-springcloud-inventory</module>
-        <module>hmily-demo-tcc-springcloud-order</module>
-        <module>hmily-demo-common</module>
+        <module>hmily-tcc-order</module>
+        <module>hmily-tcc-acount</module>
+        <module>hmily-tcc-inventory</module>
     </modules>
     <dependencyManagement>
         <dependencies>
